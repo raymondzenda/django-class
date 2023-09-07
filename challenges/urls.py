@@ -8,5 +8,5 @@ urlpatterns = [
     # path('<int:month>', views.monthly_challenge_by_number),
     # path('<str:month>', views.monthly_challenge),
     path('<int:module>', views.lectures_by_number),
-    path('<str:module>', views.lectures)
+    path('<str:module>', views.lectures, name="month-challenge")
 ]

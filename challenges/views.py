@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
-
+from django.urls import reverse 
 # Create your views here.
 
 # def january(request):
@@ -55,7 +55,8 @@ def lectures_by_number(request, module):
         return HttpResponseNotFound("invalid module")
     
     redirect_module = modules[module - 1]
-    return HttpResponseRedirect("/challenges/" + redirect_module)
+    redirect_path = reverse("month-challenge", args =[redirect_module])
+    return HttpResponseRedirect(redirect_path)
 
 
 def lectures(request, module):
@@ -92,8 +93,3 @@ def lectures(request, module):
 #         return HttpResponse(challenge_text)
 #     except:
 #         return HttpResponseNotFound("this month is not available")
-
-    
-    
-
-
